@@ -6,13 +6,13 @@ class UbicacionController {
     constructor() {
         this.crearUbicacion = (req, res) => {
             const nuevaUbicacion = new ubicacionProducto_model_1.default({
-                ubicacion: req.body.materia
+                ubicacion: req.body.ubicacion
             });
             nuevaUbicacion.save()
                 .then(ubicacionCreada => {
                 res.status(201).json({
                     ok: true,
-                    materia: ubicacionCreada,
+                    ubicacion: ubicacionCreada,
                     message: 'Ubicacion creada'
                 });
             })
@@ -27,7 +27,7 @@ class UbicacionController {
             ubicacionProducto_model_1.default
                 .find()
                 .then(ubicaciones => {
-                res.statu(200).json({
+                res.status(200).json({
                     ok: true,
                     ubicaciones: ubicaciones
                 });
@@ -42,7 +42,7 @@ class UbicacionController {
         this.actualizarUbicacion = (req, res) => {
             ubicacionProducto_model_1.default
                 .findByIdAndUpdate(req.params.id, {
-                materia: req.body.ubicacion
+                ubicacion: req.body.ubicacion
             })
                 .then(ubicacionActualizada => {
                 res.status(200).json({
@@ -65,7 +65,7 @@ class UbicacionController {
                 .then(ubicacionEliminada => {
                 res.status(200).json({
                     ok: true,
-                    message: 'Ubicacione liminada'
+                    message: 'Ubicacion eliminada'
                 });
             })
                 .catch(error => {

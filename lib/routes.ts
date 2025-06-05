@@ -1,4 +1,4 @@
-import { UbicacionRoutes } from "modules/ubicacionProducto/routes/ubicacionProducto.routes";
+import { UbicacionRoutes } from "./modules/ubicacionProducto/routes/ubicacionProducto.routes";
 import { UsuarioRoutes } from "./modules/usuario/routes/usuario.routes";
 
 export class Routes {

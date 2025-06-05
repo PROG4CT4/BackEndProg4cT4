@@ -8,7 +8,7 @@ export class UbicacionController {
         const nuevaUbicacion = new Ubicacion
     (
             {
-                ubicacion: req.body.materia
+                ubicacion: req.body.ubicacion
             }
         );
 
@@ -16,7 +16,7 @@ export class UbicacionController {
         .then(ubicacionCreada => {
             res.status(201).json({
                 ok: true,
-                materia: ubicacionCreada,
+                ubicacion: ubicacionCreada,
                 message: 'Ubicacion creada'
             });
         })
@@ -32,7 +32,7 @@ export class UbicacionController {
         Ubicacion
     .find()
         .then(ubicaciones => {
-            res.statu(200).json({
+            res.status(200).json({
                 ok: true,
                 ubicaciones: ubicaciones
             });
@@ -49,7 +49,7 @@ export class UbicacionController {
     actualizarUbicacion = (req: Request, res: Response) => {
         Ubicacion
     .findByIdAndUpdate(req.params.id, {
-            materia: req.body.ubicacion
+            ubicacion: req.body.ubicacion
         })
         .then(ubicacionActualizada => {
             res.status(200).json({
@@ -74,7 +74,7 @@ export class UbicacionController {
         .then(ubicacionEliminada => {
             res.status(200).json({
                 ok: true,
-                message: 'Ubicacione liminada'
+                message: 'Ubicacion eliminada'
             })
         })
         .catch(error => {
